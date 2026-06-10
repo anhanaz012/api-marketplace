@@ -1,13 +1,5 @@
-import HeroSlider from "@/domains/auth/components/hero-slider";
-
 const Landing = () => {
-  return (
-    <>
-      <div className="flex px-5 py-5 flex-1">
-        <HeroSlider />
-      </div>
-    </>
-  );
+  return <h1>Landing Page</h1>;
 };
 
 export default Landing;

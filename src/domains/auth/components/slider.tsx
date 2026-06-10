@@ -1,7 +1,8 @@
 "use client";
 
-import { Icon } from "@/shared/ui/icon/Icon";
+import { Icon } from "@/shared/ui";
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface AutoSliderProps {
@@ -14,7 +15,6 @@ export default function AutoSlider({
   autoSlideInterval = 4000,
 }: AutoSliderProps) {
   const [current, setCurrent] = useState(0);
-
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
@@ -24,13 +24,16 @@ export default function AutoSlider({
   }, [slides.length, autoSlideInterval]);
 
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-2xl">
+    <div className="relative w-1/2 overflow-hidden rounded-2xl">
       {/* Fixed button */}
       <div className="absolute right-5 top-5 z-20">
-        <button className="rounded-full bg-white/20 px-4 py-2 text-xs text-white backdrop-blur">
-          Back to Website
-          <Icon name="ArrowRight" size={20} className="text-gray-500" />
-        </button>
+        <Link
+          href="/"
+          className="rounded-full flex items-center justify-center px-4 py-3.5 gap-2 bg-[#D9D9D980]/50 text-white text-sm font-normal backdrop-blur"
+        >
+          <span className="leading-none">Back to Website</span>
+          <Icon name="ArrowRight" size={14} className="text-white block" />
+        </Link>
       </div>
 
       {/* Slides */}

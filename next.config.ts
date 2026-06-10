@@ -1,21 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "syncshell.com",
+  turbopack: {
+    rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
       },
-      {
-        protocol: "https",
-        hostname: "mir-s3-cdn-cf.behance.net",
-      },
-      {
-        protocol: "https",
-        hostname: "mir-s3-cdn-cf.behance.net",
-      },
-    ],
+    },
   },
 };
 
