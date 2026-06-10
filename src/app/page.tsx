@@ -1,7 +1,11 @@
-import React from "react";
+import Landing from "./(marketing)/page";
 
 const Page = () => {
-  return <></>;
+  return (
+    <>
+      <Landing />
+    </>
+  );
 };
 
 export default Page;

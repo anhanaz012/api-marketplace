@@ -9,10 +9,6 @@
   --text-secondary: #9f9f9f;
   --secondary: #cecece;
   --foreground: #171717;
-
-  /* Font configuration */
-  --font-poppins: "Poppins", system-ui, -apple-system, sans-serif;
-  --font-protest-riot: "Protest Riot", cursive, Impact;
 }
 
 @theme inline {
@@ -31,46 +27,16 @@
 /* Base body styles */
 body {
   background: var(--background);
-  color: var(--foreground);
   border-color: var(--stroke);
-  /* font-family: var(--font-sans); */
-  font-weight: 400;
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* Typography scale using Poppins */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  /* font-family: var(--font-sans); */
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-/* Font utility classes */
 .font-poppins {
   font-family: var(--font-poppins);
 }
-
 .font-protest-riot {
   font-family: var(--font-protest-riot);
 }
-
-.font-weight-normal {
-  font-weight: 400;
-}
-.font-weight-medium {
-  font-weight: 500;
-}
-.font-weight-semibold {
-  font-weight: 600;
-}
-
 .gradient-text {
   background: linear-gradient(90deg, #8b9af6 44%, #316d8a 100%);
   background-clip: text;
