@@ -6,6 +6,7 @@ import Checkbox from "@/shared/ui/checkbox/checkbox";
 import Input from "@/shared/ui/input/input";
 import { validate } from "@/utils/validator";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { AuthMode, FormErrors, FormState } from "../types/formTypes";
@@ -43,7 +44,7 @@ const RegisterWith = () => {
   return (
     <div className="flex items-center gap-4">
       <div className="h-0.5 w-full bg-linear-to-r from-transparent to-[#C3C3C3]" />
-      <p className="min-w-fit text-text-secondary">Or continue with</p>
+      <p className="min-w-fit text-text-secondary">Sign in with</p>
       <div className="h-0.5 w-full bg-linear-to-l from-transparent to-[#C3C3C3]" />
     </div>
   );
@@ -55,6 +56,7 @@ export default function AuthForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const isSignup = mode === "signup";
 
@@ -63,15 +65,34 @@ export default function AuthForm() {
     setErrors((prev) => ({ ...prev, [field]: "" }));
   };
 
+  // Real-time validation - runs whenever form or mode changes
+  const isValidated = (() => {
+    // For login, only email and password are required
+    if (!isSignup) {
+      return form.email.trim() !== "" && form.password.trim() !== "";
+    }
+    // For signup, all fields are required
+    return (
+      form.firstName.trim() !== "" &&
+      form.lastName.trim() !== "" &&
+      form.email.trim() !== "" &&
+      form.password.trim() !== "" &&
+      form.terms === true
+    );
+  })();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validate({ isSignup, form, setErrors })) return;
+    // Run validation which sets errors
+    const isValid = validate({ isSignup, form, setErrors });
+
+    if (!isValid) return;
 
     try {
       setLoading(true);
       await new Promise((res) => setTimeout(res, 1200));
-      console.log("submitted:", form);
+      router.push("/");
       toast.success(isSignup ? "Account created!" : "Logged in!");
       setForm(initialState);
     } catch (err) {
@@ -85,7 +106,7 @@ export default function AuthForm() {
     <div className="w-1/2 px-16 justify-center overflow-y-auto flex flex-col">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-[40px] font-bold text-text-primary mb-4">
+        <h1 className="text-[40px] font-medium text-text-primary mb-4">
           {isSignup ? "Create an Account" : "Welcome Back"}
         </h1>
 
@@ -116,8 +137,8 @@ export default function AuthForm() {
         </p>
       </div>
 
-      {/* Form */}
-      <form className="flex flex-col gap-8">
+      {/* Form - added onSubmit handler */}
+      <form onSubmit={handleSubmit} className="flex flex-col gap-8">
         {/* Signup-only fields */}
         {isSignup && (
           <div className="grid grid-cols-2 gap-4">
@@ -186,6 +207,7 @@ export default function AuthForm() {
             </Link>
           </div>
         )}
+
         {/* Signup-only checkbox */}
         {isSignup && (
           <div>
@@ -196,17 +218,17 @@ export default function AuthForm() {
               />
               <span className="text-text-secondary">
                 I agree to the Terms & Conditions
-                {errors.terms && (
-                  <p className="text-red-500 text-xs mt-2">{errors.terms}</p>
-                )}
               </span>
             </div>
+            {errors.terms && (
+              <p className="text-red-500 text-xs mt-2">{errors.terms}</p>
+            )}
           </div>
         )}
 
         <Button
-          variant="secondary"
-          onClick={handleSubmit}
+          type="submit"
+          variant={isValidated ? "primary" : "secondary"}
           className="w-full"
           disabled={loading}
         >

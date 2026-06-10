@@ -37,7 +37,8 @@ export default function Input({
           {...props}
           className={`
             w-full
-            border-0
+            border-0 
+            px-4
             border-b-2
             border-stroke
             bg-transparent

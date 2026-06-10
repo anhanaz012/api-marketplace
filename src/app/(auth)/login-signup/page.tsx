@@ -1,6 +1,6 @@
 import slide1 from "@/assets/images/slider/slide1.png";
 import slide2 from "@/assets/images/slider/slide2.png";
-import AuthForm from "@/domains/auth/components/signup-form";
+import AuthForm from "@/domains/auth/components/auth-form";
 import AutoSlider from "@/domains/auth/components/slider";
 
 const LoginSignup = () => {

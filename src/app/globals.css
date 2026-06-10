@@ -37,10 +37,46 @@ body {
 .font-protest-riot {
   font-family: var(--font-protest-riot);
 }
-.gradient-text {
+/* .gradient-text {
   background: linear-gradient(90deg, #8b9af6 44%, #316d8a 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   display: inline-block;
+} */
+.custom-shadow {
+  box-shadow: 0px 0px 5px 0px #00000033;
+}
+.gradient-btn {
+  position: relative;
+  background: transparent;
+  border-radius: 9999px;
+  padding: 0.5rem 20px;
+  border: 0.5px solid transparent;
+  background-clip: padding-box;
+}
+
+.gradient-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 1.5px;
+  background: linear-gradient(90deg, #007ebb 0%, #54bdf0 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #007ebb 0%, #54bdf0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
