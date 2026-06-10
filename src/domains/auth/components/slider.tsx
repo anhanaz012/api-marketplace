@@ -1,20 +1,18 @@
 "use client";
 
 import { Icon } from "@/shared/ui";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-interface AutoSliderProps {
-  slides: StaticImageData[];
-  autoSlideInterval?: number;
-}
+import { AutoSliderProps } from "../types/sliderTypes";
 
 export default function AutoSlider({
   slides,
   autoSlideInterval = 4000,
 }: AutoSliderProps) {
   const [current, setCurrent] = useState(0);
+
+  // Auto-advance slides every interval
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
@@ -25,7 +23,7 @@ export default function AutoSlider({
 
   return (
     <div className="relative xs:max-lg:hidden w-1/2 overflow-hidden rounded-2xl">
-      {/* Fixed button */}
+      {/* Fixed button - always visible on top of slides */}
       <div className="absolute right-5 top-5 z-20">
         <Link
           href="/"
@@ -36,7 +34,7 @@ export default function AutoSlider({
         </Link>
       </div>
 
-      {/* Slides */}
+      {/* Slides container - horizontal scroll with smooth transition */}
       <div
         className="flex h-full transition-transform duration-700 ease-in-out"
         style={{
@@ -59,7 +57,7 @@ export default function AutoSlider({
         ))}
       </div>
 
-      {/* Indicators */}
+      {/* Slide indicators - click to jump to specific slide */}
       <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2">
         {slides.map((_, index) => (
           <button
