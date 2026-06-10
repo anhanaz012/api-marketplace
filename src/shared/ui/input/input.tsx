@@ -42,7 +42,7 @@ export default function Input({
             border-b-2
             border-stroke
             bg-transparent
-            py-2
+            py-3.5
             outline-none
             transition
             focus:border-primary

@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { AuthMode, FormErrors, FormState } from "../types/formTypes";
+import Logo from "@/shared/ui/logo/logo";
 
 const initialState: FormState = {
   firstName: "",
@@ -21,7 +22,7 @@ const initialState: FormState = {
 
 const SocialAuth = () => {
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 xs:max-sm:grid-cols-1 gap-4">
       <Button
         leftIcon={<Icon name="Google" />}
         variant="ghost"
@@ -103,10 +104,10 @@ export default function AuthForm() {
   };
 
   return (
-    <div className="w-1/2 px-16 justify-center overflow-y-auto flex flex-col">
+    <div className="w-1/2 xs:max-lg:py-10 xs:max-lg:w-full sm:max-lg:mx-auto sm:max-lg:max-w-xl px-16 lg:max-xl:px-8 xs:max-sm:px-4 justify-center overflow-y-auto flex flex-col">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-[40px] font-medium text-text-primary mb-4">
+        <h1 className="text-[40px] sm:max-md:text-2xl xs:max-sm:text-2xl font-medium text-text-primary mb-4">
           {isSignup ? "Create an Account" : "Welcome Back"}
         </h1>
 
@@ -138,10 +139,10 @@ export default function AuthForm() {
       </div>
 
       {/* Form - added onSubmit handler */}
-      <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-8 ">
         {/* Signup-only fields */}
         {isSignup && (
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 xs:max-sm:grid-cols-1 xs:max-sm:gap-8 gap-4">
             <div>
               <Input
                 placeholder="First Name"

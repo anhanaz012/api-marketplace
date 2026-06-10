@@ -24,7 +24,7 @@ export default function AutoSlider({
   }, [slides.length, autoSlideInterval]);
 
   return (
-    <div className="relative w-1/2 overflow-hidden rounded-2xl">
+    <div className="relative xs:max-lg:hidden w-1/2 overflow-hidden rounded-2xl">
       {/* Fixed button */}
       <div className="absolute right-5 top-5 z-20">
         <Link

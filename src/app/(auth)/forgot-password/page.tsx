@@ -166,11 +166,11 @@ const ForgotPassword = () => {
   // ── OTP Step ──────────────────────────────────────────────
   if (step === "otp") {
     return (
-      <div className="max-w-md mx-auto items-center flex-col flex flex-1 justify-center">
+      <div className="max-w-md xs:max-sm:max-w-sm xs:max-sm:px-4 mx-auto items-center flex-col flex flex-1 justify-center">
         <button className="bg-primary/10 h-14 w-14 pt-1 rounded-full">
           <Icon name="Envelope" />
         </button>
-        <h1 className="text-[40px] font-medium text-text-primary my-4">
+        <h1 className="text-[40px] sm:max-md:text-2xl xs:max-sm:text-2xl font-medium text-text-primary my-4">
           Check your email
         </h1>
         <p className="text-md text-center text-text-secondary">
@@ -179,7 +179,7 @@ const ForgotPassword = () => {
         </p>
 
         {/* OTP Boxes */}
-        <div className="my-8 flex gap-3 justify-center">
+        <div className="my-8 flex xs:max-sm:grid xs:max-sm:grid-cols-6 gap-3 justify-center">
           {otp.map((digit, index) => (
             <input
               key={index}
@@ -194,7 +194,7 @@ const ForgotPassword = () => {
               onKeyDown={(e) => handleOtpKeyDown(index, e)}
               onPaste={handleOtpPaste}
               className={`
-                w-14 h-14 text-xl flex text-center font-semibold rounded-xl
+                w-14 h-14 xs:max-sm:w-10 xs:max-sm:h-10 text-xl flex text-center font-semibold rounded-xl
                 border bg-transparent outline-none
                 transition-all duration-150 select-none
                 text-text-primary
@@ -242,11 +242,11 @@ const ForgotPassword = () => {
 
   // ── Email Step ────────────────────────────────────────────
   return (
-    <div className="max-w-md mx-auto items-center flex-col flex flex-1 justify-center">
+    <div className="max-w-md xs:max-sm:max-w-sm xs:max-sm:px-4 mx-auto items-center flex-col flex flex-1 justify-center">
       <button className="bg-primary/10 h-14 w-14 pt-1 rounded-full">
         <Icon name="Envelope" />
       </button>
-      <h1 className="text-[40px] font-medium text-text-primary my-4">
+      <h1 className="text-[40px] sm:max-md:text-2xl xs:max-sm:text-2xl font-medium text-text-primary my-4">
         Forgot Password?
       </h1>
       <p className="text-md text-center text-text-secondary">
