@@ -4,6 +4,8 @@ import { Icon } from "@/shared/ui";
 import Button from "@/shared/ui/button/button";
 import React from "react";
 import { OTPStepProps } from "../types/forgotPasswordTypes";
+import { ErrorField } from "./error-field";
+import { useRouter } from "next/navigation";
 
 const OTPStep: React.FC<OTPStepProps> = ({
   email,
@@ -18,6 +20,7 @@ const OTPStep: React.FC<OTPStepProps> = ({
   const otpRefs = React.useRef<(HTMLInputElement | null)[]>(
     Array(6).fill(null),
   );
+  const router = useRouter();
 
   // Enable verify button only when all 6 digits are filled
   const isOtpValid = otp.join("").length === 6;
@@ -109,6 +112,7 @@ const OTPStep: React.FC<OTPStepProps> = ({
       setErrors({ otp: "Invalid code. Please try again." });
       setTimeout(() => otpRefs.current[0]?.focus(), 50);
     }
+    router.push("/reset-password");
   };
 
   // Resend OTP with 60-second cooldown
@@ -154,41 +158,38 @@ const OTPStep: React.FC<OTPStepProps> = ({
       </p>
 
       {/* 6-digit OTP input boxes */}
-      <div className="my-8 flex xs:max-sm:grid xs:max-sm:grid-cols-6 gap-3 justify-center">
-        {otp.map((digit, index) => (
-          <input
-            key={index}
-            ref={(el) => {
-              otpRefs.current[index] = el;
-            }}
-            type="text"
-            inputMode="numeric"
-            maxLength={1}
-            value={digit}
-            onChange={(e) => handleOtpChange(index, e.target.value)}
-            onKeyDown={(e) => handleOtpKeyDown(index, e)}
-            onPaste={handleOtpPaste}
-            className={`
-              w-14 h-14 xs:max-sm:w-10 xs:max-sm:h-10 text-xl flex text-center font-semibold rounded-xl
-              border bg-transparent outline-none
-              transition-all duration-150 select-none
-              text-text-primary
-              ${
-                digit
-                  ? "border-text-primary"
-                  : "border-stroke dark:border-gray-600"
-              }
-              focus:border-text-primary focus:ring-2 focus:ring-text-primary/20
-              ${errors.otp ? "border-red-500 focus:border-red-500 focus:ring-red-500/20" : ""}
-            `}
-          />
-        ))}
-      </div>
-
-      {/* Error message */}
-      {errors.otp && (
-        <p className="text-red-500 text-xs -mt-4 mb-4">{errors.otp}</p>
-      )}
+      <ErrorField error={errors.otp} className="my-8 w-full">
+        <div className="flex xs:max-sm:grid xs:max-sm:grid-cols-6 gap-3 justify-center">
+          {otp.map((digit, index) => (
+            <input
+              key={index}
+              ref={(el) => {
+                otpRefs.current[index] = el;
+              }}
+              type="text"
+              inputMode="numeric"
+              maxLength={1}
+              value={digit}
+              onChange={(e) => handleOtpChange(index, e.target.value)}
+              onKeyDown={(e) => handleOtpKeyDown(index, e)}
+              onPaste={handleOtpPaste}
+              className={`
+                w-14 h-14 xs:max-sm:w-10 xs:max-sm:h-10 text-xl flex text-center font-semibold rounded-xl
+                border bg-transparent outline-none
+                transition-all duration-150 select-none
+                text-text-primary
+                ${
+                  digit
+                    ? "border-text-primary"
+                    : "border-stroke dark:border-gray-600"
+                }
+                focus:border-text-primary focus:ring-2 focus:ring-text-primary/20
+                ${errors.otp ? "border-red-500 focus:border-red-500 focus:ring-red-500/20" : ""}
+              `}
+            />
+          ))}
+        </div>
+      </ErrorField>
 
       {/* Verify button */}
       <Button

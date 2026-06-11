@@ -8,7 +8,7 @@ const BackButton = () => {
         variant="light"
         className="w-fit bg-primary/20 py-2 px-4 custom-shadow"
       >
-        <Link href="/login-signup">Back to Sign in</Link>
+        <Link href="/login">Back to Sign in</Link>
       </Button>
     </div>
   );

@@ -64,7 +64,7 @@ export default function AutoSlider({
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
+            className={`h-2 rounded-full cursor-pointer transition-all duration-300 ${
               current === index
                 ? "w-10 bg-white"
                 : "w-10 bg-white/50 hover:bg-white/70"

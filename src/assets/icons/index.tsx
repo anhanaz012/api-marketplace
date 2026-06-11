@@ -5,3 +5,4 @@ export { default as Eye } from "@/assets/icons/eye.svg";
 export { default as EyeOff } from "@/assets/icons/eye-off.svg";
 export { default as Envelope } from "@/assets/icons/envelope.svg";
 export { default as Lock } from "@/assets/icons/lock.svg";
+export { default as AlertCircle } from "@/assets/icons/alert-circle.svg";

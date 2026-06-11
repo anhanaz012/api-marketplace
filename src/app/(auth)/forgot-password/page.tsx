@@ -1,5 +1,6 @@
 "use client";
 
+import BackButton from "@/domains/auth/components/back-btn";
 import EmailStep from "@/domains/auth/components/email-step";
 import OTPStep from "@/domains/auth/components/otp-step";
 import React from "react";
@@ -60,16 +61,23 @@ const ForgotPassword = () => {
 
   if (step === "otp") {
     return (
-      <OTPStep
-        email={email}
-        onVerify={handleVerifyOtp}
-        onResend={handleResendOtp}
-        loading={loading}
-      />
+      <>
+        <BackButton />
+        <OTPStep
+          email={email}
+          onVerify={handleVerifyOtp}
+          onResend={handleResendOtp}
+          loading={loading}
+        />
+      </>
     );
   }
 
-  return <EmailStep onSendOtp={handleSendOtp} loading={loading} />;
+  return (
+    <>
+      <EmailStep onSendOtp={handleSendOtp} loading={loading} />;
+    </>
+  );
 };
 
 export default ForgotPassword;

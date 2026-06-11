@@ -1,5 +1,6 @@
 "use client";
 import BackButton from "@/domains/auth/components/back-btn";
+import { ErrorField } from "@/domains/auth/components/error-field";
 import { Icon } from "@/shared/ui";
 import Button from "@/shared/ui/button/button";
 import Input from "@/shared/ui/input/input";
@@ -37,7 +38,7 @@ const ResetPassword = () => {
       setLoading(true);
       await new Promise((res) => setTimeout(res, 1200));
       toast.success("Password reset successfully!");
-      router.push("/login-signup");
+      router.push("/");
     } catch (err) {
       console.error(err);
       toast.error("Failed to reset password. Please try again.");
@@ -51,23 +52,24 @@ const ResetPassword = () => {
       {/* Back button - returns to sign in page */}
       <BackButton />
 
-      <div className="max-w-md mx-auto items-center flex-col flex flex-1 justify-center">
+      <div className="max-w-md xs:max-sm:w-full xs:max-sm:px-4 xs:max-sm:text-center mx-auto items-center flex-col flex flex-1 justify-center">
         {/* Lock icon - visual header */}
         <button className="bg-primary/10 h-14 w-14 pt-1 rounded-full">
           <Icon name="Lock" />
         </button>
 
-        <h1 className="text-[40px] font-medium text-text-primary my-4">
+        <h1 className="text-[40px] my-4 xs:max-md:text-2xl font-medium text-text-primary mb-4">
           Set a New Password
         </h1>
 
-        <p className="text-md text-center text-text-secondary">
-          Enter a new password for your account.
+        <p className="text-md xs:max-sm:max-w-xs text-center text-text-secondary">
+          Reset your access with a unique password to keep your data safe and
+          private.
         </p>
 
         {/* Password input fields */}
-        <div className="my-8 w-full flex flex-col gap-4">
-          <div>
+        <div className="my-8 w-full flex flex-col gap-8">
+          <ErrorField error={errors.password}>
             <Input
               type={showPassword ? "text" : "password"}
               placeholder="Enter new password"
@@ -84,12 +86,9 @@ const ResetPassword = () => {
               rightIcon={<Icon name={showPassword ? "EyeOff" : "Eye"} />}
               onRightIconClick={() => setShowPassword((v) => !v)}
             />
-            {errors.password && (
-              <p className="text-red-500 text-xs mt-2">{errors.password}</p>
-            )}
-          </div>
+          </ErrorField>
 
-          <div>
+          <ErrorField error={errors.confirmPassword}>
             <Input
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Confirm new password"
@@ -109,12 +108,7 @@ const ResetPassword = () => {
               rightIcon={<Icon name={showConfirmPassword ? "EyeOff" : "Eye"} />}
               onRightIconClick={() => setShowConfirmPassword((v) => !v)}
             />
-            {errors.confirmPassword && (
-              <p className="text-red-500 text-xs mt-2">
-                {errors.confirmPassword}
-              </p>
-            )}
-          </div>
+          </ErrorField>
         </div>
 
         {/* Confirm button - disabled while loading or invalid */}

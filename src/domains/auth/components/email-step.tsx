@@ -5,6 +5,7 @@ import Button from "@/shared/ui/button/button";
 import Input from "@/shared/ui/input/input";
 import Link from "next/link";
 import React from "react";
+import { ErrorField } from "./error-field";
 
 interface EmailStepProps {
   onSendOtp: (email: string) => Promise<void>;
@@ -66,7 +67,7 @@ const EmailStep: React.FC<EmailStepProps> = ({ onSendOtp, loading }) => {
       </p>
 
       {/* Email input field */}
-      <div className="my-8 w-full">
+      <ErrorField error={errors.email} className="my-8 w-full">
         <Input
           placeholder="Enter your email"
           value={email}
@@ -76,10 +77,7 @@ const EmailStep: React.FC<EmailStepProps> = ({ onSendOtp, loading }) => {
           }}
           onKeyDown={handleKeyDown}
         />
-        {errors.email && (
-          <p className="text-red-500 text-xs mt-2">{errors.email}</p>
-        )}
-      </div>
+      </ErrorField>
 
       {/* Next button */}
       <Button
@@ -94,7 +92,7 @@ const EmailStep: React.FC<EmailStepProps> = ({ onSendOtp, loading }) => {
 
       {/* Back to sign in link */}
       <Button variant="ghost" className="w-fit mx-auto py-3 custom-shadow mt-6">
-        <Link href="login-signup">
+        <Link href="login">
           Back to <span className="text-text-primary">Sign in</span>
         </Link>
       </Button>

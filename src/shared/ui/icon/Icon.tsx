@@ -11,7 +11,7 @@ type IconProps = {
 export function Icon({ name, size = 24, className }: IconProps) {
   const Svg = Icons[name];
   return (
-    <span className="inline-flex items-center justify-center">
+    <span className="inline-flex cursor-pointer items-center justify-center">
       <Svg width={size} height={size} className={className} />
     </span>
   );

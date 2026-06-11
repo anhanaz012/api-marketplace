@@ -10,6 +10,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { FormErrors, SignupFormState } from "../types/formTypes";
 import { SocialAuth } from "./social-auth";
+import { ErrorField } from "./error-field";
 
 const initialState: SignupFormState = {
   firstName: "",
@@ -66,43 +67,34 @@ export default function SignupForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-8">
       {/* Name fields row */}
       <div className="grid grid-cols-2 xs:max-sm:grid-cols-1 xs:max-sm:gap-8 gap-4">
-        <div>
+        <ErrorField error={errors.firstName}>
           <Input
             placeholder="First Name"
             value={form.firstName}
             onChange={(e) => setField("firstName", e.target.value)}
           />
-          {errors.firstName && (
-            <p className="text-red-500 text-xs mt-2">{errors.firstName}</p>
-          )}
-        </div>
+        </ErrorField>
 
-        <div>
+        <ErrorField error={errors.lastName}>
           <Input
             placeholder="Last Name"
             value={form.lastName}
             onChange={(e) => setField("lastName", e.target.value)}
           />
-          {errors.lastName && (
-            <p className="text-red-500 text-xs mt-2">{errors.lastName}</p>
-          )}
-        </div>
+        </ErrorField>
       </div>
 
       {/* Email input field */}
-      <div>
+      <ErrorField error={errors.email}>
         <Input
           placeholder="Email"
           value={form.email}
           onChange={(e) => setField("email", e.target.value)}
         />
-        {errors.email && (
-          <p className="text-red-500 text-xs mt-2">{errors.email}</p>
-        )}
-      </div>
+      </ErrorField>
 
       {/* Password input with toggle visibility */}
-      <div>
+      <ErrorField error={errors.password}>
         <Input
           placeholder="Password"
           type={showPassword ? "text" : "password"}
@@ -117,26 +109,23 @@ export default function SignupForm() {
           }
           onChange={(e) => setField("password", e.target.value)}
         />
-        {errors.password && (
-          <p className="text-red-500 text-xs mt-2">{errors.password}</p>
-        )}
-      </div>
+      </ErrorField>
 
       {/* Terms and conditions checkbox */}
-      <div>
+      <ErrorField error={errors.terms}>
         <div className="flex gap-2 items-center">
           <Checkbox
             checked={form.terms}
             onChange={(val: boolean) => setField("terms", val)}
           />
-          <span className="text-text-secondary">
-            I agree to the Terms & Conditions
+          <span className="text-text-secondary xs:max-sm:text-sm xs:max-sm:text-left">
+            I agree to the{" "}
+            <a href="#" className="text-text-primary cursor-pointer">
+              Terms & Conditions{" "}
+            </a>
           </span>
         </div>
-        {errors.terms && (
-          <p className="text-red-500 text-xs mt-2">{errors.terms}</p>
-        )}
-      </div>
+      </ErrorField>
 
       {/* Submit button - disabled while loading */}
       <Button

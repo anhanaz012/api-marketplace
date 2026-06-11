@@ -16,28 +16,19 @@ const Header = () => {
 
         {/* Primary Navigation */}
         <nav aria-label="Primary Navigation">
-          <ul className="flex items-center gap-6">
+          <ul className="flex items-center gap-6 text-text-primary">
             <li>
-              <a
-                href="/"
-                className="text-gray-700 hover:text-black transition-colors"
-              >
+              <a href="/" className="hover:text-black transition-colors">
                 Home
               </a>
             </li>
             <li>
-              <a
-                href="/apis"
-                className="text-gray-700 hover:text-black transition-colors"
-              >
+              <a href="/apis" className="hover:text-black transition-colors">
                 Public Hub
               </a>
             </li>
             <li>
-              <a
-                href="/docs"
-                className="text-gray-700 hover:text-black transition-colors"
-              >
+              <a href="/docs" className="hover:text-black transition-colors">
                 About
               </a>
             </li>
