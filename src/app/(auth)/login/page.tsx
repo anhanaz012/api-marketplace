@@ -14,12 +14,12 @@ export default function LoginScreen() {
         <div className="my-auto">
           {/* Header */}
           <div className="mb-6">
-            <h1 className="text-[40px] sm:max-md:text-2xl xs:max-sm:text-2xl font-medium text-text-primary mb-4">
+            <h1 className="text-[40px] sm:max-md:text-2xl xs:max-sm:text-2xl font-medium text-base mb-4">
               Welcome Back
             </h1>
-            <p className="text-md xs:max-sm:max-w-xs text-text-secondary">
+            <p className="text-md xs:max-sm:max-w-xs text-muted">
               Don't have an account?{" "}
-              <a href="/signup" className="text-text-primary cursor-pointer">
+              <a href="/signup" className="text-base cursor-pointer">
                 Sign up
               </a>
             </p>

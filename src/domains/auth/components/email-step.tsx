@@ -56,11 +56,11 @@ const EmailStep: React.FC<EmailStepProps> = ({ onSendOtp, loading }) => {
 
       <Logo />
 
-      <h1 className="text-[40px] sm:max-md:text-2xl xs:max-sm:text-2xl font-medium text-text-primary my-4">
+      <h1 className="text-[40px] sm:max-md:text-2xl xs:max-sm:text-2xl font-medium text-base my-4">
         Forgot Password?
       </h1>
 
-      <p className="text-md text-center text-text-secondary">
+      <p className="text-md text-center text-muted">
         Enter your email address and we'll send you a 6-digit code to reset your
         password.
       </p>
@@ -92,7 +92,7 @@ const EmailStep: React.FC<EmailStepProps> = ({ onSendOtp, loading }) => {
       {/* Back to sign in link */}
       <Button variant="ghost" className="w-fit mx-auto py-3 custom-shadow mt-6">
         <Link href="login">
-          Back to <span className="text-text-primary">Sign in</span>
+          Back to <span className="text-base">Sign in</span>
         </Link>
       </Button>
     </div>

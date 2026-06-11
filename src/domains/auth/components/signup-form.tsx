@@ -118,9 +118,9 @@ export default function SignupForm() {
             checked={form.terms}
             onChange={(val: boolean) => setField("terms", val)}
           />
-          <span className="text-text-secondary xs:max-sm:text-sm xs:max-sm:text-left">
+          <span className="text-muted xs:max-sm:text-sm xs:max-sm:text-left">
             I agree to the{" "}
-            <a href="#" className="text-text-primary cursor-pointer">
+            <a href="#" className="text-base cursor-pointer">
               Terms & Conditions{" "}
             </a>
           </span>

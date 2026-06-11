@@ -88,7 +88,7 @@
 //         <div className="text-right mt-2">
 //           <Link
 //             href="/forgot-password"
-//             className="text-xs text-text-primary hover:text-primary"
+//             className="text-xs text-base hover:text-primary"
 //           >
 //             Forgot password?
 //           </Link>
@@ -198,7 +198,7 @@ export default function LoginForm() {
         <div className="text-right">
           <Link
             href="/forgot-password"
-            className="text-xs text-text-primary hover:text-primary"
+            className="text-xs text-base hover:text-primary"
           >
             Forgot password?
           </Link>

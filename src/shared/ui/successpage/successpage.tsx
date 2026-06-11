@@ -31,17 +31,15 @@ const SuccessPage = ({
       <div className="text-center max-w-md mx-auto p-6">
         <Icon name="Success" size={70} />
 
-        <h1 className="text-[40px] xs:max-md:text-2xl font-medium text-text-primary mb-4">
+        <h1 className="text-[40px] xs:max-md:text-2xl font-medium text-base mb-4">
           {title}
         </h1>
-        <p className="text-md xs:max-sm:max-w-xs text-text-secondary">
-          {message}
-        </p>
+        <p className="text-md xs:max-sm:max-w-xs text-muted">{message}</p>
 
         <Button
           onClick={handleClick}
           variant="ghost"
-          className="custom-shadow py-2 mt-4 text-text-primary!"
+          className="custom-shadow py-2 mt-4 text-base!"
         >
           {actionBtnText}
         </Button>

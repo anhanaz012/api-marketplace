@@ -15,13 +15,13 @@ export default function SignupScreen() {
         <div className="my-auto">
           {/* Header */}
           <div className="mb-6">
-            <h1 className="text-[40px] xs:max-md:text-2xl font-medium text-text-primary mb-4">
+            <h1 className="text-[40px] xs:max-md:text-2xl font-medium text-base mb-4">
               Create an Account
             </h1>
 
-            <p className="text-md xs:max-sm:max-w-xs text-text-secondary">
+            <p className="text-md xs:max-sm:max-w-xs text-muted">
               Already have an account?{" "}
-              <a href="/login" className="text-text-primary cursor-pointer">
+              <a href="/login" className="text-base cursor-pointer">
                 Sign in
               </a>
             </p>

@@ -147,14 +147,14 @@ const OTPStep: React.FC<OTPStepProps> = ({
         <Icon name="Envelope" />
       </button>
 
-      <h1 className="text-[40px] sm:max-md:text-2xl xs:max-sm:text-2xl font-medium text-text-primary my-4">
+      <h1 className="text-[40px] sm:max-md:text-2xl xs:max-sm:text-2xl font-medium text-base my-4">
         Check your email
       </h1>
 
-      <p className="text-md text-center text-text-secondary">
+      <p className="text-md text-center text-muted">
         We've sent a 6-digit code to{" "}
-        <span className="font-medium text-text-primary">{maskedEmail}</span>.
-        Please check your inbox and follow the instructions.
+        <span className="font-medium text-base">{maskedEmail}</span>. Please
+        check your inbox and follow the instructions.
       </p>
 
       {/* 6-digit OTP input boxes */}
@@ -177,7 +177,7 @@ const OTPStep: React.FC<OTPStepProps> = ({
                 w-14 h-14 xs:max-sm:w-10 xs:max-sm:h-10 text-xl flex text-center font-semibold rounded-xl
                 border bg-transparent outline-none
                 transition-all duration-150 select-none
-                text-text-primary
+                text-base
                 ${
                   digit
                     ? "border-text-primary"
@@ -203,7 +203,7 @@ const OTPStep: React.FC<OTPStepProps> = ({
       </Button>
 
       {/* Resend section */}
-      <p className="text-text-secondary text-sm mt-6 text-center">
+      <p className="text-muted text-sm mt-6 text-center">
         Still haven't received the code?
       </p>
 
@@ -214,7 +214,7 @@ const OTPStep: React.FC<OTPStepProps> = ({
         disabled={loading || resendCooldown > 0}
       >
         Click here to{" "}
-        <span className="text-text-primary">
+        <span className="text-base">
           {resendCooldown > 0 ? `Resend (${resendCooldown}s)` : "Resend"}
         </span>
       </Button>

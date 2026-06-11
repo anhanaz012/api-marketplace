@@ -7,7 +7,7 @@ export const SocialAuth = () => {
       {/* Divider with "Sign in with" text */}
       <div className="flex items-center gap-4">
         <div className="h-0.5 w-full bg-linear-to-r from-transparent to-[#C3C3C3]" />
-        <p className="min-w-fit text-text-secondary">Sign in with</p>
+        <p className="min-w-fit text-muted">Sign in with</p>
         <div className="h-0.5 w-full bg-linear-to-l from-transparent to-[#C3C3C3]" />
       </div>
 

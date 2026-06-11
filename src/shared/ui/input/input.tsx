@@ -46,7 +46,7 @@ export default function Input({
             outline-none
             transition
             focus:border-primary
-            placeholder:text-text-secondary
+            placeholder:text-muted
             ${hasLeftIcon ? "pl-10" : ""}
             ${hasRightIcon ? "pr-10" : ""}
             ${error ? "border-red-500 focus:border-red-500" : ""}

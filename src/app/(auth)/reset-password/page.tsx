@@ -57,11 +57,11 @@ const ResetPassword = () => {
           <Icon name="Lock" />
         </button>
 
-        <h1 className="text-[40px] my-4 xs:max-md:text-2xl font-medium text-text-primary mb-4">
+        <h1 className="text-[40px] my-4 xs:max-md:text-2xl font-medium text-base mb-4">
           Set a New Password
         </h1>
 
-        <p className="text-md xs:max-sm:max-w-xs text-center text-text-secondary">
+        <p className="text-md xs:max-sm:max-w-xs text-center text-muted">
           Reset your access with a unique password to keep your data safe and
           private.
         </p>

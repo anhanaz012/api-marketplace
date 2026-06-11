@@ -23,10 +23,10 @@ export default function Button({
     primary: "bg-primary text-white hover:bg-primary/90",
     secondary: "bg-secondary text-white hover:bg-gray-300",
     primaryOutline:
-      "bg-transparent border border-primary hover:border-stroke hover:text-text-secondary text-primary hover:bg-primary/20",
+      "bg-transparent border border-primary hover:border-stroke hover:text-muted text-primary hover:bg-primary/20",
     light:
       "bg-primary/10 text-primary hover:bg-primary/20 shadow-none! font-normal! text-sm",
-    ghost: "bg-transparent text-text-secondary hover:bg-primary-light",
+    ghost: "bg-transparent text-muted hover:bg-primary-light",
   };
 
   return (
