@@ -37,8 +37,7 @@ const ResetPassword = () => {
     try {
       setLoading(true);
       await new Promise((res) => setTimeout(res, 1200));
-      toast.success("Password reset successfully!");
-      router.push("/");
+      router.push("/reset-password/success");
     } catch (err) {
       console.error(err);
       toast.error("Failed to reset password. Please try again.");

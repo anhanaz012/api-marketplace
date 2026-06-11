@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
+import { useRouter } from "next/router";
 import Button from "../button/button";
 import Logo from "../logo/logo";
 
 const Header = () => {
-  const [activeTab, setActiveTab] = React.useState("home");
+  const router = useRouter();
 
   return (
     <header className="bg-white shadow-md">
@@ -18,17 +18,26 @@ const Header = () => {
         <nav aria-label="Primary Navigation">
           <ul className="flex items-center gap-6 text-text-primary">
             <li>
-              <a href="/" className="hover:text-black transition-colors">
+              <a
+                href="/"
+                className="hover:text-text-secondary cursor-pointer transition-colors"
+              >
                 Home
               </a>
             </li>
             <li>
-              <a href="/apis" className="hover:text-black transition-colors">
+              <a
+                href="/apis"
+                className="hover:text-text-secondary cursor-pointer transition-colors"
+              >
                 Public Hub
               </a>
             </li>
             <li>
-              <a href="/docs" className="hover:text-black transition-colors">
+              <a
+                href="/docs"
+                className="hover:text-text-secondary cursor-pointer transition-colors"
+              >
                 About
               </a>
             </li>
@@ -37,8 +46,26 @@ const Header = () => {
 
         {/* Authentication Actions */}
         <div className="flex items-center gap-3">
-          <Button variant="secondary">Log In</Button>
-          <Button variant="primary">Sign Up</Button>
+          <Button
+            variant="primaryOutline"
+            borderRounded
+            onClick={() => {
+              router.push("/signin");
+            }}
+            className="py-2 text-sm px-6 font-normal"
+          >
+            Sign in
+          </Button>
+          <Button
+            variant="primary"
+            borderRounded
+            onClick={() => {
+              router.push("/signup");
+            }}
+            className="py-2 text-sm px-6 font-normal"
+          >
+            Sign up
+          </Button>
         </div>
       </div>
     </header>

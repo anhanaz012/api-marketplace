@@ -1,1 +1,10 @@
 export { Icon } from "./icon/Icon";
+export { default as Button } from "./button/button";
+export { default as Checkbox } from "./checkbox/checkbox";
+export { default as Modal } from "./modal/modal";
+export { default as Footer } from "./footer/footer";
+export { default as Logo } from "./logo/logo";
+export { default as Header } from "./header/header";
+export { default as Layout } from "./layout/layout";
+export { default as SuccessPage } from "./successpage/successpage";
+export { default as Input } from "./input/input";

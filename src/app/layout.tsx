@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { protestRiot, poppins } from "@/lib/fonts";
 import "./globals.css";
 import "./gradients.css";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "API Marketplace",
@@ -22,7 +23,10 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${protestRiot.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Toaster position="top-right" />
+      </body>
     </html>
   );
 }
