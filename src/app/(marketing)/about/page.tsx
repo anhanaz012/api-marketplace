@@ -6,8 +6,8 @@ import { Layout } from "@/shared/ui";
 const page = () => {
   return (
     <Layout>
-      {/* <Hero /> */}
-      {/* <MissionSection /> */}
+      <Hero />
+      <MissionSection />
       <GrowthSection />
     </Layout>
   );
