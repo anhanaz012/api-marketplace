@@ -50,7 +50,7 @@ const Header = () => {
             variant="primaryOutline"
             borderRounded
             onClick={() => {
-              router.push("/signin");
+              router.push("/login");
             }}
             className="py-2 text-sm px-6 font-normal"
           >
