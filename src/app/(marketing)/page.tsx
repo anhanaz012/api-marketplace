@@ -1,5 +1,7 @@
-const Landing = () => {
-  return <h1>Landing Page</h1>;
+import Header from "@/shared/ui/header/header";
+
+const LandingPage = () => {
+  return <Header />;
 };
 
-export default Landing;
+export default LandingPage;

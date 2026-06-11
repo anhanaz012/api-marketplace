@@ -50,6 +50,7 @@ export default function AutoSlider({
               src={src}
               alt={`Slide ${index + 1}`}
               fill
+              loading="eager"
               priority={index === 0}
               className="object-cover"
             />

@@ -1,11 +1,11 @@
 import { Toaster } from "sonner";
-import Landing from "./(marketing)/page";
+import LandingPage from "./(marketing)/page";
 
 const Page = () => {
   return (
     <>
       <Toaster />
-      <Landing />
+      <LandingPage />
     </>
   );
 };

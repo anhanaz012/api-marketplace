@@ -25,7 +25,7 @@ export const poppins = localFont({
   preload: true,
 });
 
-// For static single-weight font (CORRECTED)
+// For static single-weight font
 export const protestRiot = localFont({
   src: "../../public/fonts/protest_riot/ProtestRiot-Regular.ttf",
   variable: "--font-protest-riot",
