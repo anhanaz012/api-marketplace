@@ -10,10 +10,7 @@ const Header = () => {
     <header className="bg-white shadow-md">
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         {/* Logo */}
-        <a href="/" aria-label="Go to homepage">
-          <Logo />
-        </a>
-
+        <Logo />
         {/* Primary Navigation */}
         <nav aria-label="Primary Navigation">
           <ul className="flex items-center gap-6 text-text-primary">
@@ -35,7 +32,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                href="/docs"
+                href="/about"
                 className="hover:text-text-secondary cursor-pointer transition-colors"
               >
                 About
