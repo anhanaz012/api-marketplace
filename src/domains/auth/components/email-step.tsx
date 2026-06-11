@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "@/shared/ui";
+import { Icon, Logo } from "@/shared/ui";
 import Button from "@/shared/ui/button/button";
 import Input from "@/shared/ui/input/input";
 import Link from "next/link";
@@ -53,9 +53,8 @@ const EmailStep: React.FC<EmailStepProps> = ({ onSendOtp, loading }) => {
   return (
     <div className="max-w-md xs:max-sm:max-w-sm xs:max-sm:px-4 mx-auto items-center flex-col flex flex-1 justify-center">
       {/* Email icon header */}
-      <button className="bg-primary/10 h-14 w-14 pt-1 rounded-full">
-        <Icon name="Envelope" />
-      </button>
+
+      <Logo />
 
       <h1 className="text-[40px] sm:max-md:text-2xl xs:max-sm:text-2xl font-medium text-text-primary my-4">
         Forgot Password?

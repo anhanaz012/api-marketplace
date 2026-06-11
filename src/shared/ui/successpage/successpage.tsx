@@ -41,7 +41,7 @@ const SuccessPage = ({
         <Button
           onClick={handleClick}
           variant="ghost"
-          className="custom-shadow py-2 mt-4 text-text-primary"
+          className="custom-shadow py-2 mt-4 text-text-primary!"
         >
           {actionBtnText}
         </Button>
