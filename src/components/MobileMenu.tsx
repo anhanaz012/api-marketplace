@@ -3,7 +3,7 @@
 import { HEADER_HEIGHT, navItems } from "@/constants/header.constants";
 import { Button } from "@/shared/ui";
 import Link from "next/link";
-
+//another new comment to add commit history & create PR for Github actions!
 interface MobileMenuProps {
   isOpen: boolean;
   isActive: (href: string) => boolean;
